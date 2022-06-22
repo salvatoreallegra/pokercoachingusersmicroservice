@@ -1,4 +1,4 @@
-package com.salallegra.pokercoaching.usersmicroservice;
+package com.pokercoaching.usersmicroservice;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
