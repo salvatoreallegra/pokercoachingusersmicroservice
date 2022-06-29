@@ -22,5 +22,4 @@ public class UserController {
     public String createUser(@Valid @RequestBody CreateUserRequestModel user){
         return "Called create user method";
     }
-
 }
