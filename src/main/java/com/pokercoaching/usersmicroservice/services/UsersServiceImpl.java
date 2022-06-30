@@ -1,13 +1,31 @@
 package com.pokercoaching.usersmicroservice.services;
 
+import com.pokercoaching.usersmicroservice.data.UserEntity;
+import com.pokercoaching.usersmicroservice.data.UserRepository;
 import com.pokercoaching.usersmicroservice.shared.UserDto;
+import org.modelmapper.ModelMapper;
+import org.modelmapper.convention.MatchingStrategies;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.UUID;
-
+@Service
 public class UsersServiceImpl implements UsersService {
+
+    @Autowired
+    UserRepository userRepository;
+    @Autowired
+    public UsersServiceImpl(){
+        this.userRepository = userRepository;
+    }
     @Override
     public UserDto createUser(UserDto userDetails) {
         userDetails.setUserId(UUID.randomUUID().toString());
+        ModelMapper mapper = new ModelMapper();
+        mapper.getConfiguration().setMatchingStrategy((MatchingStrategies.STRICT));
+        UserEntity userEntity = mapper.map(userDetails,UserEntity.class);
+        userEntity.setEncryptedPassword("test");
+        userRepository.save(userEntity);
         return null;
     }
 }
