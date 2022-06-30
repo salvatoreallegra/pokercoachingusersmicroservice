@@ -1,10 +1,13 @@
 package com.pokercoaching.usersmicroservice.services;
 
+import com.pokercoaching.usersmicroservice.shared.UserDto;
+
+import java.util.UUID;
+
 public class UsersServiceImpl implements UsersService {
-
-
     @Override
-    public UserDTo createUser(UserDto userDetails) {
-
+    public UserDto createUser(UserDto userDetails) {
+        userDetails.setUserId(UUID.randomUUID().toString());
+        return null;
     }
 }

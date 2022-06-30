@@ -1,7 +1,13 @@
 package com.pokercoaching.usersmicroservice.shared;
 
-public class UserDto {
+import java.io.Serial;
+import java.io.Serializable;
 
+public class UserDto implements Serializable {
+
+
+    @Serial
+    private static final long serialVersionUID = 1700128946939083761L;
     private String firstName;
     private String lastName;
     private String email;
