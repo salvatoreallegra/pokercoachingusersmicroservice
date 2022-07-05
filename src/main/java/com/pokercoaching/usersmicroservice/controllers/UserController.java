@@ -30,10 +30,13 @@ public class UserController {
 
     @PostMapping
     public ResponseEntity<CreateUserResponseModel> createUser(@Valid @RequestBody CreateUserRequestModel user){
+        //Create Mapper
         ModelMapper mapper = new ModelMapper();
         mapper.getConfiguration().setMatchingStrategy((MatchingStrategies.STRICT));
 
+        //Map incoming post request data user object into dto
         UserDto userDto = mapper.map(user,UserDto.class);
+
         UserDto createdUser = usersService.createUser(userDto);
 
 
