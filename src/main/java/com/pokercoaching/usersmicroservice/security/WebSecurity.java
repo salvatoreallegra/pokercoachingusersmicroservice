@@ -29,10 +29,13 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
         this.usersService = usersService;
         this.bCryptPasswordEncoder = bCryptPasswordEncoder;
     }
+
     @Override
-    protected void configure(HttpSecurity http) throws Exception{
+    protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable();
-        http.authorizeHttpRequests().antMatchers("/users/**").permitAll()
+        http.authorizeRequests().antMatchers("/**").permitAll()
+                .anyRequest()
+                .authenticated()//hasIpAddress(environment.getProperty("gateway.ip"))
                 .and()
                 .addFilter(getAuthenticationFilter());
         http.headers().frameOptions().disable();
