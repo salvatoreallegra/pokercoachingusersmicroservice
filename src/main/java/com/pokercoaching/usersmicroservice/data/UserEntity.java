@@ -12,10 +12,21 @@ public class UserEntity implements Serializable {
     @Id
     @GeneratedValue
     private Long id;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     @Column(nullable=false,length=50)
+    private String name;
+   /* @Column(nullable=false,length=50)
     private String firstName;
     @Column(nullable=false,length=50)
-    private String lastName;
+    private String lastName;*/
     @Column(nullable=false,length=120,unique=true)
     private String email;
     @Column(nullable=false,unique=true)
@@ -32,7 +43,7 @@ public class UserEntity implements Serializable {
         this.id = id;
     }
 
-    public String getFirstName() {
+  /*  public String getFirstName() {
         return firstName;
     }
 
@@ -46,7 +57,7 @@ public class UserEntity implements Serializable {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
-    }
+    }*/
 
     public String getEmail() {
         return email;

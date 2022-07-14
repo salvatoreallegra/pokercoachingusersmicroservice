@@ -2,13 +2,23 @@ package com.pokercoaching.usersmicroservice.models;
 
 public class CreateUserResponseModel {
 
-    public String firstName;
-    public String lastName;
+    /*public String firstName;
+    public String lastName;*/
+
+    public String name;
     public String email;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public String userId;
 
-    public String getFirstName() {
+    /*public String getFirstName() {
         return firstName;
     }
 
@@ -22,7 +32,7 @@ public class CreateUserResponseModel {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
-    }
+    }*/
 
     public String getEmail() {
         return email;

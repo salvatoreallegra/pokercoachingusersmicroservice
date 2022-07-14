@@ -28,7 +28,8 @@ public class UserController {
         return "Working on port " + env.getProperty("local.server.port");
     }
 
-    @PostMapping
+    @PostMapping("/register")
+    @CrossOrigin(origins = "http://localhost:3000")
     public ResponseEntity<CreateUserResponseModel> createUser(@Valid @RequestBody CreateUserRequestModel user){
         //Create Mapper
         ModelMapper mapper = new ModelMapper();
