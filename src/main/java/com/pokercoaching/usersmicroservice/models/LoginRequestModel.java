@@ -7,11 +7,9 @@ public class LoginRequestModel {
     public Object getEmail() {
         return email;
     }
-
     public void setEmail(Object email) {
         this.email = email;
     }
-
     public Object getPassword() {
         return password;
     }
