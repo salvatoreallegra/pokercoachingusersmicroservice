@@ -1,6 +1,6 @@
 package com.pokercoaching.usersmicroservice.services;
 
-import com.pokercoaching.usersmicroservice.data.UserEntity;
+import com.pokercoaching.usersmicroservice.data.Users;
 import com.pokercoaching.usersmicroservice.data.UserRepository;
 import com.pokercoaching.usersmicroservice.shared.UserDto;
 import org.modelmapper.ModelMapper;
@@ -32,28 +32,28 @@ public class UsersServiceImpl implements UsersService {
 
         ModelMapper mapper = new ModelMapper();
         mapper.getConfiguration().setMatchingStrategy((MatchingStrategies.STRICT));
-        UserEntity userEntity = mapper.map(userDetails,UserEntity.class);
-        userRepository.save(userEntity);
+        Users users = mapper.map(userDetails, Users.class);
+        userRepository.save(users);
 
-        UserDto returnValue = mapper.map(userEntity,UserDto.class);
+        UserDto returnValue = mapper.map(users,UserDto.class);
         return returnValue;
     }
 
     @Override
     public UserDto getUserDetailsByEmail(String email) {
 
-        UserEntity userEntity = userRepository.findByEmail(email);
-        if(userEntity == null) throw new UsernameNotFoundException(email);
+        Users users = userRepository.findByEmail(email);
+        if(users == null) throw new UsernameNotFoundException(email);
 
-        return new ModelMapper().map(userEntity,UserDto.class);
+        return new ModelMapper().map(users,UserDto.class);
     }
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
-        UserEntity userEntity = userRepository.findByEmail(username);
-        if(userEntity == null) throw new UsernameNotFoundException(username);
-        return new User(userEntity.getEmail(),userEntity.getEncryptedPassword(), true,true,true,true, new ArrayList<>());
+        Users users = userRepository.findByEmail(username);
+        if(users == null) throw new UsernameNotFoundException(username);
+        return new User(users.getEmail(), users.getEncryptedPassword(), true,true,true,true, new ArrayList<>());
     }
 
 }
