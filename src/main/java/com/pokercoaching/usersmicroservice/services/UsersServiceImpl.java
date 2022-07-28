@@ -56,4 +56,16 @@ public class UsersServiceImpl implements UsersService {
         return new User(users.getEmail(), users.getEncryptedPassword(), true,true,true,true, new ArrayList<>());
     }
 
+    @Override
+    public UserDto getUserByUserId(String userId) {
+
+        Users userEntity = userRepository.findByUserId(userId);
+        if(userEntity == null) throw new UsernameNotFoundException("User not found");
+
+        UserDto userDto = new ModelMapper().map(userEntity, UserDto.class);
+
+        return userDto;
+    }
+
+
 }

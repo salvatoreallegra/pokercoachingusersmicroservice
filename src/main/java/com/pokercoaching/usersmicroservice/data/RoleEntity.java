@@ -1,4 +1,4 @@
-package com.pokercoaching.usersmicroservice.data;
+/*package com.pokercoaching.usersmicroservice.data;
 
 import javax.persistence.*;
 
@@ -49,4 +49,4 @@ public class RoleEntity {
     }
 
     // getters and setters are not shown for brevity
-}
+}*/
