@@ -52,10 +52,10 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
                 .addFilter(getAuthenticationFilter());
 
         http.headers().frameOptions().disable();
-        http.cors();
+        //http.cors();
         //http.logout(logout -> logout);
     }
-    @Bean
+   /* @Bean
     CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
         configuration.setAllowedOrigins(Arrays.asList("/**"));
@@ -63,7 +63,7 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", configuration);
         return source;
-    }
+    }*/
 
     private AuthenticationFilter getAuthenticationFilter() throws Exception
     {
