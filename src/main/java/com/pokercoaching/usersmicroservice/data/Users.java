@@ -5,7 +5,7 @@ import java.io.Serial;
 import java.io.Serializable;
 
 @Entity
-@Table(name="users")
+@Table(name = "users")
 public class Users implements Serializable {
     @Serial
     private static final long serialVersionUID = 4798614476118531385L;
@@ -13,26 +13,16 @@ public class Users implements Serializable {
     @GeneratedValue
     private Long id;
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    @Column(nullable=false,length=50)
+    @Column(nullable = false, length = 50)
     private String name;
 
-    @Column(nullable=false,length=120,unique=true)
+    @Column(nullable = false, length = 120, unique = true)
     private String email;
-    @Column(nullable=false,unique=true)
+    @Column(nullable = false, unique = true)
     private String userId;
 
-    @Column(nullable=false,unique=true)
+    @Column(nullable = false, unique = true)
     private String encryptedPassword;
-
-
 
 
     public Long getId() {
@@ -41,6 +31,14 @@ public class Users implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
 
