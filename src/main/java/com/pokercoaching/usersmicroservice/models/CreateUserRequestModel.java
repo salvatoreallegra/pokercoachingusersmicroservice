@@ -15,6 +15,10 @@ public class CreateUserRequestModel {
     @Size(min=8,max=16,message="Password must be between 8 and 16 Characters")
     public String password;
 
+    @NotNull(message="Email Cannot Be Null")
+    @Email
+    public String email;
+
     public String getName() {
         return name;
     }
@@ -22,10 +26,6 @@ public class CreateUserRequestModel {
     public void setName(String name) {
         this.name = name;
     }
-
-    @NotNull(message="Email Cannot Be Null")
-    @Email
-    public String email;
 
     public String getPassword() {
         return password;
